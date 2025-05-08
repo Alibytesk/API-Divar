@@ -4,6 +4,7 @@ from accounts.models import User
 from django.utils.translation import gettext_lazy as _
 
 class Ad(models.Model):
+    objects = models.Manager()
     publisher = models.ForeignKey(
         to=User,
         related_name='ads',

@@ -9,6 +9,7 @@ urlpatterns = [
     path('swagger/', SpectacularSwaggerView.as_view(), name='swagger'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
+    path('ads/', include('ads.urls'))
 ]
 if DEBUG:
     urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
