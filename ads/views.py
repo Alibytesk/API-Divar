@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
@@ -27,3 +27,11 @@ class AdCreateView(APIView):
             serializer.save()
             return Response(data=serializer.data, status=status.HTTP_200_OK)
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AdDetailView(APIView):
+    serializer_class = AdSerializer
+    def get(self, request, pk=None):
+        _object = get_object_or_404(klass=Ad, id=pk)
+        serializer = AdSerializer(instance=_object, many=False)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
