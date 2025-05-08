@@ -23,3 +23,5 @@ class ProfileView(APIView):
             serializer.update(validated_data=serializer.validated_data, instance=user)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+

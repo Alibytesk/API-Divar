@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django_render_partial',
     #apps
     'accounts.apps.AccountsConfig',
+    'ads.apps.AdsConfig',
 
 ]
 
